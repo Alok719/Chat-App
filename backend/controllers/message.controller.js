@@ -50,13 +50,13 @@ const getMessage = async (req, res) => {
       participants: { $all: [userChatId, senderId] },
     }).populate("messages"); // populate replaces the messages field (presumably an array of message IDs or references) with the actual message documents from the Message collection.
     if (!conversation) {
-      res.status(200).json([]);
+      return res.status(200).json([]);
     }
     const messages = conversation.messages;
-    res.status(200).json(messages);
+    return res.status(200).json(messages);
   } catch (error) {
     console.log(`error in the getMessage controller`, error.message);
-    res.status(400).json({ error: `internal server error` });
+    return res.status(400).json({ error: `internal server error` });
   }
 };
 export { sendMessage, getMessage };
