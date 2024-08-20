@@ -6,5 +6,7 @@ const useConverstation = create((set) => ({
     set({ selectedConversation }),
   messages: [],
   setMessages: (messages) => set({ messages }),
+  // setMessages: (newMessages) =>
+  //   set((state) => ({ messages: [...state.messages, ...newMessages] })),
 }));
 export default useConverstation;

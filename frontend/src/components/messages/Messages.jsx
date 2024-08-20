@@ -2,9 +2,11 @@ import { useEffect, useRef } from "react";
 import useGetmessages from "../../hooks/useGetmessages";
 import MessageSkeleton from "../skeletons/messageSkeleton";
 import Message from "./Message";
+import useListenMessages from "../../hooks/useListenMessages";
 
 const Messages = () => {
   const { messages, loading } = useGetmessages();
+  useListenMessages();
   const lastMessageRef = useRef();
   useEffect(() => {
     setTimeout(() => {
@@ -15,7 +17,9 @@ const Messages = () => {
     <div className="px-4 flex-1 overflow-auto">
       {!loading &&
         messages.length > 0 &&
-        messages.map((message) => (
+        messages.map((message, index) => (
+          //prev key key={message._id}
+          //new key key={`${message._id}-${index}`}
           <div key={message._id} ref={lastMessageRef}>
             <Message message={message} />
           </div>
