@@ -36,12 +36,12 @@ const sendMessage = async (req, res) => {
 
     //socket Io functionality will go here
     const receiversocketId = getReceiverSocketId(receiverId);
-    console.log("reciverID", receiverId);
+    // console.log("reciverID", receiverId);
     if (receiversocketId) {
       io.to(receiversocketId).emit("newMessage", newMessage);
     }
-    console.log(`New message sent:`, newMessage);
-    console.log(`Sending to socketID:`, receiversocketId);
+    // console.log(`New message sent:`, newMessage);
+    // console.log(`Sending to socketID:`, receiversocketId);
     res.status(201).json(newMessage);
   } catch (error) {
     console.log(`error in the sendMessage controller`, error.message);

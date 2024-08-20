@@ -19,19 +19,19 @@ export const SocketContextProvider = ({ children }) => {
           userId: authUser._id,
         },
       });
-      console.log("authuserid", authUser._id);
-      socket.on("connect", () => {
-        console.log("Socket connected with ID:", socket.id);
-      });
+      // console.log("authuserid", authUser._id);
+      // socket.on("connect", () => {
+      //   console.log("Socket connected with ID:", socket.id);
+      // });
 
-      socket.on("disconnect", () => {
-        console.log("Socket disconnected");
-      });
+      // socket.on("disconnect", () => {
+      //   console.log("Socket disconnected");
+      // });
 
-      socket.on("connect_error", (error) => {
-        console.log("Socket connection error:", error);
-      });
-      console.log("Socket ID on connect:", socket.id);
+      // socket.on("connect_error", (error) => {
+      //   console.log("Socket connection error:", error);
+      // });
+      // console.log("Socket ID on connect:", socket.id);
 
       setSocket(socket);
 
